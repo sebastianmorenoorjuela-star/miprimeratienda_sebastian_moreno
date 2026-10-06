@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi tienda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sueños de Princesa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  </head>
+  <body style="margin:0; padding:20px; background:#fff;">
+
+  <div class="hero-princesa">
+    <span class="destello d1" aria-hidden="true">✦</span>
+    <span class="destello d2" aria-hidden="true">✧</span>
+    <span class="destello d3" aria-hidden="true">✦</span>
+
+    <div class="corona" aria-hidden="true">♕</div>
+
+    <h1>Sueños de Princesa</h1>
+
+    <p class="slogan">Donde cada princesa encuentra su cuento de hadas</p>
+
+    <div class="linea-real" aria-hidden="true">
+      <span></span><i>✧</i><span></span>
+    </div>
+  </div>
+
+  <style>
+    .hero-princesa {
+      --rosa-fondo: #fff0f7;
+      --rosa: #f8d9e8;
+      --ciruela: #8f3d68;
+      --texto: #6f4b5d;
+      --oro: #d9a441;
+      --oro-claro: #f3d58a;
+
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 56px 24px 48px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.9), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(243,213,138,.35), transparent 45%),
+        linear-gradient(135deg, var(--rosa-fondo), var(--rosa) 55%, #fff7fb);
+      border: 2px solid var(--oro);
+      border-radius: 25px;
+      /* segundo borde interior, como marco real */
+      outline: 1px solid var(--oro-claro);
+      outline-offset: -10px;
+      box-shadow: 0 8px 25px rgba(180, 100, 140, 0.18);
+    }
+
+    .hero-princesa .corona {
+      font-size: 34px;
+      line-height: 1;
+      color: var(--oro);
+      margin-bottom: 8px;
+    }
+
+    .hero-princesa h1 {
+      margin: 0;
+      font-family: "Great Vibes", "Brush Script MT", cursive;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 9vw, 4.6rem);
+      line-height: 1.1;
+      color: var(--ciruela);
+      text-shadow: 1px 2px 0 var(--oro-claro);
+    }
+
+    .hero-princesa .slogan {
+      margin: 14px auto 0;
+      max-width: 32ch;
+      color: var(--texto);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .linea-real {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      color: var(--oro);
+    }
+
+    .linea-real span {
+      height: 1px;
+      width: min(28vw, 140px);
+      background: linear-gradient(90deg, transparent, var(--oro));
+    }
+
+    .linea-real span:last-child {
+      background: linear-gradient(270deg, transparent, var(--oro));
+    }
+
+    .linea-real i {
+      font-style: normal;
+      font-size: 20px;
+    }
+
+    /* Destellos */
+    .destello {
+      position: absolute;
+      color: var(--oro);
+      animation: brillo 3.2s ease-in-out infinite;
+    }
+    .d1 { top: 18px; right: 28px; font-size: 26px; }
+    .d2 { top: 60px; left: 34px; font-size: 18px; animation-delay: 1s; }
+    .d3 { bottom: 24px; right: 18%; font-size: 14px; animation-delay: 2s; }
+
+    @keyframes brillo {
+      0%, 100% { opacity: .35; transform: scale(.85); }
+      50%      { opacity: 1;   transform: scale(1.15); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .destello { animation: none; opacity: .8; }
+    }
+  </style>
+
+  </body>
+  </html>
+
+  <div class="beneficios">
+    <span>🚚 Envíos en Bogotá</span>
+    <span>🔒 Compra segura</span>
+    <span>📦 Seguimiento de pedido</span>
+  </div>
+
+  <div id="productos"></div>
+
+  <div class="carrito">
+    <h2>🧾 Carrito de Compras</h2>
+
+    <ul id="lista-carrito"></ul>
+
+    <div class="resumen">
+      <p>
+        Envío: <strong>Gratis</strong>
+      </p>
+
+      <p class="total">
+        Total: $<span id="total">0</span>
+      </p>
+    </div>
+
+    <button class="vaciar" onclick="vaciarCarrito()">
+      🧼 Vaciar Carrito
+    </button>
+
+    <button class="finalizar" onclick="finalizarCompra()">
+      ✅ Finalizar Compra
+    </button>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
