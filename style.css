@@ -1,0 +1,267 @@
+/* ===== Paleta (cambia los colores aquí) ===== */
+:root {
+  --ciruela: #8f3d68;
+  --ciruela-oscuro: #6e2a4d;
+  --ciruela-medio: #b96d96;
+  --rosa-boton: #c78aaa;
+  --rosa-borde: #e1bfd1;
+  --rosa-suave: #fffafd;
+  --texto: #4b3545;
+  --texto-suave: #6b5262;
+  --oro: #d9b45c;
+  --oro-texto: #8a6414;       /* oro oscuro: se lee bien sobre blanco */
+  --oro-boton-1: #a97c1f;
+  --oro-boton-2: #876213;
+  --alerta: #a8486a;
+  --alerta-oscuro: #873653;
+  --sombra: 143, 61, 104;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  background: linear-gradient(135deg, #fff5fa, #f8eafa, #fffaf2) fixed;
+  color: var(--texto);
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+/* ===== Encabezado ===== */
+
+h1 {
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-weight: 400;
+  color: var(--ciruela);
+  font-size: clamp(2.8rem, 9vw, 4.4rem);
+  line-height: 1.1;
+  margin: 0 0 8px;
+  text-shadow: 1px 2px 0 #f3d58a;
+}
+
+.slogan {
+  color: var(--texto-suave);
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  font-style: italic;
+  max-width: 34ch;
+  margin: 0 auto 28px;
+}
+
+/* ===== Beneficios de la tienda ===== */
+
+.beneficios {
+  display: flex;
+  justify-content: center;
+  gap: 12px 35px;
+  flex-wrap: wrap;
+
+  background: linear-gradient(90deg, var(--ciruela), var(--ciruela-medio), var(--ciruela));
+  color: #fff;
+
+  padding: 16px;
+  margin: 0 -20px 32px;   /* ocupa todo el ancho, compensa el padding del body */
+
+  border-top: 2px solid var(--oro);
+  border-bottom: 2px solid var(--oro);
+  box-shadow: 0 4px 12px rgba(var(--sombra), 0.2);
+}
+
+.beneficios span {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Catálogo ===== */
+
+#productos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;       /* los botones quedan alineados abajo */
+  border: 1px solid var(--rosa-borde);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 18px;
+  padding: 12px;
+  width: 220px;
+
+  box-shadow: 0 6px 18px rgba(var(--sombra), 0.13);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(var(--sombra), 0.22);
+}
+
+.producto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ead4df;
+}
+
+.producto h3 {
+  color: var(--ciruela);
+  margin: 12px 0 6px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.descripcion {
+  font-family: system-ui, Arial, sans-serif;
+  font-size: 14px;
+  color: var(--texto-suave);
+  min-height: 42px;
+  margin: 0 0 8px;
+}
+
+.precio {
+  font-family: system-ui, Arial, sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--oro-texto);
+  margin: 0 0 6px;
+}
+
+/* ===== Botones (base compartida) ===== */
+
+button {
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background 0.2s ease, color 0.2s ease;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--oro);
+  outline-offset: 3px;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Botón de cada producto */
+
+.producto button {
+  margin-top: auto;               /* se pega al fondo de la tarjeta */
+  padding: 10px 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #b7699a, var(--ciruela));
+  border: 1px solid var(--ciruela);
+}
+
+.producto button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 10px rgba(var(--sombra), 0.28);
+}
+
+/* ===== Carrito ===== */
+
+.carrito {
+  margin-top: 40px;
+  padding: 25px;
+  background: var(--rosa-suave);
+  border: 1px solid var(--rosa-borde);
+  border-radius: 18px;
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  max-width: 420px;
+  min-width: 0;
+
+  box-shadow: 0 7px 20px rgba(var(--sombra), 0.15);
+}
+
+.carrito h2 {
+  margin-top: 0;
+  color: var(--ciruela);
+  text-align: center;
+}
+
+#lista-carrito {
+  padding-left: 20px;
+}
+
+#lista-carrito li {
+  margin-bottom: 8px;
+  color: #5e4654;
+}
+
+/* ===== Resumen ===== */
+
+.resumen {
+  border-top: 1px solid #e4cbd7;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.total {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--oro-texto);
+}
+
+/* ===== Botón vaciar ===== */
+
+.vaciar {
+  background: transparent;
+  border: 1.5px solid var(--alerta);
+  color: var(--alerta);
+  padding: 10px 16px;
+  margin-top: 10px;
+}
+
+.vaciar:hover {
+  background: var(--alerta);
+  color: #fff;
+}
+
+/* ===== Botón finalizar ===== */
+
+.finalizar {
+  background: linear-gradient(135deg, var(--oro-boton-1), var(--oro-boton-2));
+  border: none;
+  color: #fff;
+  padding: 11px 18px;
+  margin-top: 10px;
+  margin-left: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(138, 100, 20, 0.3);
+}
+
+.finalizar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(138, 100, 20, 0.38);
+}
+
+/* ===== Celulares ===== */
+
+@media (max-width: 480px) {
+  body { padding: 14px; }
+  .beneficios { margin: 0 -14px 26px; gap: 8px 20px; }
+  .producto { width: 100%; max-width: 320px; }
+  .finalizar { margin-left: 0; }
+}
+
+/* ===== Reducir movimiento ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
